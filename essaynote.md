@@ -459,7 +459,7 @@ google 201704在archive上的论文。
 采用**depthwise separable**卷积核，减少计算量和模型大小。
 MobileNet是为移动和嵌入式视觉应用设计的模型，它是使用了深度可分离卷积的轻型流式结构，如下：
 
-![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/mobilenet.jpg)
+![avatar](https://tva1.sinaimg.cn/large/008eGmZEly1gouags0zz0j30g60ke75y.jpg)
 
 原始卷积计算量：
 $D_k  \cdot D_k \cdot M \cdot N \cdot D_F \cdot D_F $
