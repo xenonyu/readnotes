@@ -1,6 +1,6 @@
 # 分类网络 阅读笔记
 ---
-![avatar](./pic/DeepCNNS.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/DeepCNNS.png)
 $上图将主要算法分为了Spatial Exploitation based CNNs, Depth based CNNs, Muilti_Path based CNNs, Width based Muilti-Connection CNNs, Feature Map (Channel_{FMap}) Exploitation based CNNs, Attention based CNNs7个类别. 各模型的主要贡献,参数,优先级见下表.$
 <!-- LeNet | AlexNet | ZfNet | VGG | GoogleNet | Hightway Nets | ResNet | Inception-V3, V4 | Inception-ResNet | DenseNet | Pyramidal Net | Xcception | Sequeeze and Excitation | Competitive Squeeze and Exicitation | Residual Attention Neural Network | Convolutional Block Attention | Concurrent Squeeze and Excitation
 :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-:
@@ -284,14 +284,14 @@ aaa | bbb | ccc | ddd | eee | aaa | bbb | ccc | ddd | eee | aaa | bbb | ccc | dd
 ### LeNet & Alexnet
 $LeNet由LeCuN等在1998年提出。它以其历史重要性而闻名，因为它是第一个CNN，在手手指识别任务中显示了最先进的性能。它具有对数字进行分类的能力，而不会受到较小的失真的影响.而8层CNN的AlexNet以非常大的优势赢得了2012年ImageNet比赛。该网络首次证明深度学习比手动提取特征的效果更好.AlexNet的缺点是深度加深之后会导致过拟合,它的解决方式是在开始的几层使用kernelsize=11的卷积,使用ReLU降低梯度消失的问题,使用dropout降低过拟合.$
 
-![avatar](./pic/LeNet&AlexNet.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/LeNet&Alexnet.png)
 
 ###  ZfNet
 $对中间层(Conv, Relu)的计算状态进行了可视化,提出AlexNet只有很少的神经元都是active的.$
 
 ### VGG
 $第一个使用相同结构的模块不断迭代的构建网络,作为提取特征的单元,大大降低了大模型构建的难度,同时使用小的卷积核代替大的卷积核.$
-![avatar](./pic/VGG.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/VGG.png)
 
 ### GoogLeNet
 ### 简介
@@ -341,15 +341,15 @@ class Inception(nn.Module):
         return torch.cat(outputs, 1)
 ```
 
-![avatar](./pic/inceptionblock.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/inceptionblock.png)
 1. 采用不同大小的卷积核意味着不同大小的感受野，最后拼接意味着不同尺度特征的融合；
 2. 之所以卷积核大小采用1、3和5，主要是为了方便对齐。设定卷积步长stride=1之后，只要分别设定pad=0、1、2，那么卷积之后便可以得到相同维度的特征，然后这些特征就可以直接拼接在一起了；
 
 ### Inception-v2,v3,v4, Inception-Resnet
 1. 使用小的卷积核代替大的卷积核,减少计算量,如下.
-![avatar](./pic/inceptionblockv2-3.png)
-2. 在通过卷积核比较大的层之前加入了1x1的卷积层调整维度.
-3. Inception-ResNet中,Szegedy结合了Residual Block,使用了残差连接改进了Inception,将Concate操作改成了残差连接,发现在深度和宽度增加的同时,模型收敛速度更快了。
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/inceptionblockv2-3.png)
+1. 在通过卷积核比较大的层之前加入了1x1的卷积层调整维度.
+2. Inception-ResNet中,Szegedy结合了Residual Block,使用了残差连接改进了Inception,将Concate操作改成了残差连接,发现在深度和宽度增加的同时,模型收敛速度更快了。
 
 ## Depth based CNNs
 ---
@@ -370,7 +370,7 @@ class Inception(nn.Module):
 
 ### Residual Block
 
-![avatar](./pic/resblock.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/resblock.png)
 ```python   
 class BasicBlock(nn.Module):
     expansion: int = 1
@@ -429,7 +429,7 @@ class BasicBlock(nn.Module):
 
 #### 简介:
 和ResNet 的主要区别是,这篇论文提出一个结构提炼了这个洞察$(insight)$到简单连通性模式：为了保证最大信息在网络的之间流动，直接将所有的层与其他层连接（通过匹配特征层$feature\,map$的大小）为了保持前馈特性，每层都有从前继层额外输入，传递自己的$feature\,map$的信息。与$ResNet$对比，他们采用将特征连接$(concatenate)$。因此，第l层有l个输入,是所有前驱$feature\,map$块组成。而它的特征是被送往$(L-l)$个后继层。这样L层就有$L(L+1)/2$个连接，而不是传统的L个连接。所以它被命名为Dense Convolutional Network (DenseNet).它的优点是相比于ResNet,网络之间不同层的信息传递效率更高了.
-![avatar](./pic/DenseNet.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/DenseNet.png)
 
 ---
 ## Width based Multi-Connection CNNs
@@ -439,7 +439,7 @@ class BasicBlock(nn.Module):
 #### 简介
 
 在之前的模型比如ResNet中,在层数增加时,特征图的深度通过卷积层增加了,但是空间维度下降了(使用降采样层),导致特征表示能力下降,导致性能下降. 于是此文作者舍弃了了$residual \, unit$, $Pyramidal\,Net$的特点是每层的宽度都会逐步增加,增加了模型的表示能力.下图左侧是$residual \, unit$,右侧是$Pyramidal\,Net$的实现方式.
-![avatar](./pic/pyramidal.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/pyramidal.png)
 
 ### Xception
 
@@ -449,7 +449,7 @@ Xception模块与深度可分离卷积之间的两个小区别是：
 
 1. 操作顺序：通常实现的深度可分离卷积（例如在TensorFlow中）首先执行通道空间卷积（深度卷积），然后执行1x1卷积，而Inception首先执行1x1卷积。
 2. 第一次操作后是否存在非线性。在Inception中，两个操作都跟随ReLU非线性，但是通常在没有非线性的情况下实现深度可分离卷积。
-![avatar](./pic/Xception.png)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/Xception.png)
 
 ## MobileNet
 
@@ -459,7 +459,7 @@ google 201704在archive上的论文。
 采用**depthwise separable**卷积核，减少计算量和模型大小。
 MobileNet是为移动和嵌入式视觉应用设计的模型，它是使用了深度可分离卷积的轻型流式结构，如下：
 
-![avatar](./pic/mobilenet.jpg)
+![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/mobilenet.jpg)
 
 原始卷积计算量：
 $D_k  \cdot D_k \cdot M \cdot N \cdot D_F \cdot D_F $
