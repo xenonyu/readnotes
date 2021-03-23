@@ -7,12 +7,11 @@ cd pavisdk/
 ```shell
 python test1.py
 ```
-![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/test1.png)
+<img src=https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/test1.png width="400" >
 ### 效果：
 登录pavi网站：http://pavi.parrots.sensetime.com
-![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/PAVI_Dashboard.jpg)
+<img src=https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/PAVI_Dashboard.jpg width="400" >
 ### 查看模型结构:
-![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/PAVI_ModelStruct.jpg)
-
+<img src=https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/PAVI_ModelStruct.jpg width="400" >
 
 
