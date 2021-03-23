@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BenchMark &#x6D4B;&#x8BD5;&#x8BB0;&#x5F55;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="benchmark-测试记录">BenchMark 测试记录</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">model</th>
+<th style="text-align:center">epoch 1</th>
+<th style="text-align:center">epoch 2</th>
+<th style="text-align:center">epoch 4</th>
+<th style="text-align:center">epoch 8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">resnet50</td>
+<td style="text-align:center">Avg time: 2.278<br> Acc@1: 15.23 <br> Acc@5: 31.25</td>
+<td style="text-align:center">Avg time: 2.727<br> Acc@1: 31.26 <br> Acc@5: 56.20</td>
+<td style="text-align:center">Avg time: 2.322<br> Acc@1: 40.62 <br> Acc@5: 71.88</td>
+<td style="text-align:center">Avg time: 0.122<br> Acc@1: 15.23 <br> Acc@5: 31.25</td>
+</tr>
+<tr>
+<td style="text-align:center">resnet101</td>
+<td style="text-align:center">Avg time: 2.576<br> Acc@1: 12.50 <br> Acc@5: 15.62</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+</tr>
+<tr>
+<td style="text-align:center">inceptionV2</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+</tr>
+<tr>
+<td style="text-align:center">inceptionV3</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+<td style="text-align:center">Avg time: 0.000<br> Acc@1: 0.000 <br> Acc@5: 0.000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="过程记录">过程记录</h2>
+<h3 id="测试resnet-50">测试Resnet 50：</h3>
+<h4 id="命令">命令：</h4>
+<pre><code class="language-shell"><div>sh runner/example/train.sh pat_dev 8 resnet50.benchmark
+</div></code></pre>
+<h4 id="出现warn">出现Warn:</h4>
+<p><img src="https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/BenchMarkIMG/warn.png" alt="avatar"></p>
+<h4 id="epoch-1">epoch 1</h4>
+<h4 id="epoch-2">epoch 2</h4>
+<h4 id="epoch-4">epoch 4</h4>
+<h3 id="测试resnet-101">测试Resnet 101:</h3>
+<h4 id="命令-1">命令</h4>
+<pre><code class="language-shell"><div>sh runner/example/train.sh pat_dev 8 resnet101.benchmark
+</div></code></pre>
+
+    </body>
+    </html>
