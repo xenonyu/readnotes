@@ -12,7 +12,7 @@ python test1.py
 ### 效果：
 
 登录pavi网站：http://pavi.parrots.sensetime.com
-<img src=" https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/PAVI_Dashboard.jpg" style="zoom:67%;" />
+![]( https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/PAVI_Dashboard.jpg)
 
 ### 查看模型结构:
 ![]( https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/PAVIIMG/PAVI_ModelStruct.jpg)
