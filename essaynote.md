@@ -2,287 +2,36 @@
 ---
 ![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/DeepCNNS.png)
 $上图将主要算法分为了Spatial Exploitation based CNNs, Depth based CNNs, Muilti_Path based CNNs, Width based Muilti-Connection CNNs, Feature Map (Channel_{FMap}) Exploitation based CNNs, Attention based CNNs7个类别. 各模型的主要贡献,参数,优先级见下表.$
-<!-- LeNet | AlexNet | ZfNet | VGG | GoogleNet | Hightway Nets | ResNet | Inception-V3, V4 | Inception-ResNet | DenseNet | Pyramidal Net | Xcception | Sequeeze and Excitation | Competitive Squeeze and Exicitation | Residual Attention Neural Network | Convolutional Block Attention | Concurrent Squeeze and Excitation
-:-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-:
-aaa | bbb | ccc | ddd | eee | aaa | bbb | ccc | ddd | eee | aaa | bbb | ccc | ddd | eee | ddd | eee 
-18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18  | 18   -->
-
-<body>
-<table cellspacing="0" border="0">
-	<colgroup span="2" width="138"></colgroup>
-	<colgroup width="216"></colgroup>
-	<colgroup span="5" width="138"></colgroup>
-	<tr>
-		<td colspan=8 height="37" align="center" valign=middle><font size=3>Rank</font></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="42" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Architecture Name</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Year</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Main contribution</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Parameters</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Error Rate</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Depth</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Category</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Reference</font></b></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>LeNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>1998</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>First popular CNN architecture</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>0.060 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>[dist]MNIST: 0.8<br>MNIST: 0.95</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>5</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Spatial Exploitation</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="85" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>AlexNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2012</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>1. Deeper and wider than the LeNet&#8232;2. Uses Relu, dropout and overlap Pooling A4</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>60 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 16.4</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>8</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Spatial Exploitation</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="42" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>ZfNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2014</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Visualization of intermediate layers</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>60 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 11.7</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>8</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Spatial Exploitation</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 3</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="58" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>VGG</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2014</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Homogenous topology<br>Uses small size kernels</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>138 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 7.3</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>19</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Spatial Exploitation</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>GoogLeNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2015</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Introduced block concept<br>Split transform and merge idea</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>4 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 6.7</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>22</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Spatial Exploitation</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="106" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Inception-V3</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2015</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Handles the problem of a representational bottleneck<br>Replace large size filters with small filters</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>23.6 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 3.5</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>159</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Depth + Width</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="42" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Highway Networks</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2015</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Introduced an idea of Multi-path</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2.3 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10: 7.76</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>19</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Depth + Multi-Path</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Inception-V4</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2016</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Split transform and merge idea Uses asymmetric filters</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>35 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 4.01</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>70</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Depth +Width</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Inception-ResNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2016</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Uses split transform merge idea and residual links</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>55.8M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 3.52</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>572</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Depth + Width +</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>ResNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2016</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Residual learning Identity mapping based skip connections</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>25.6 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 3.6<br>CIFAR-10: 6.43</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>152</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Depth + Multi-Path</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="85" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>DelugeNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2016</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Allows cross layer information flow in deep networks</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>20.2 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10: 3.76<br>CIFAR-100: 19.02</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>146</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Multi-path</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="85" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>FractalNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2016</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Different path lengths are interacting with each other without any residual connection</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>38.6 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10: 7.27</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>20</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Multi-Path</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="85" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>WideResNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2016</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Width is increased and depth is decreased</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>36.5 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10: 3.89<br>CIFAR-100: 18.85</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>28</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Width</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Xception</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Depth wise convolution followed by point wise convolution</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>22.8 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 0.055</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>126</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Width</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Residual Attention Network</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Introduced an attention mechanism</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>8.6 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10: 3.90<br>ImageNet: 4.8</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>452</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Attention</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="106" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>ResNeXt</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Cardinality<br>Homogeneous topology<br>Grouped convolution</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>68.1 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10: 3.58<br>CIFAR-100: 17.31<br>ImageNet: 4.4</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>29</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Width</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Squeeze &amp; Excitation Network</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Models interdependencies between feature-maps</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>27.5 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 2.3</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>152</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Feature-Map Exploitation</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="106" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>DenseNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Cross-layer information flow</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>25.6 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10+: 3.46 CIFAR100+:17.18 CIFAR-10: 5.19</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>190</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Multi-Path</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="149" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>PolyNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Experimented structural diversity<br>Introduced Poly Inception module<br>Generalizes residual unit using polynomial compositions</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>92 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: Single:4.25 Multi:3.45</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>-</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Width</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="106" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>PyramidalNet</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Increases width gradually per unit</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>116.4 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 4.7<br>CIFAR-10: 3.48<br>CIFAR-100: 17.01</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>200</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Width</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="149" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Convolutional Block Attention Module (ResNeXt101 (32x4d) +CBAM</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2018</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Exploits both spatial and feature-map information</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>48.96 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 5.59</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>101</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Attention</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="106" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Concurrent Spatial &amp; Channel Excitation Mechanism</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2018</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Spatial attention<br>Feature-map attention<br>Concurrent placement of spatial and channel attention</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>-</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>MALC: 0.12<br>Visceral: 0.09</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>-</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Attention</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="106" align="center" valign=middle sdnum="1033;0;@"><b><font face="Times New Roman" size=4>Channel Boosted CNN</font></b></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2018</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Boosting of original channels with additional information rich generated artificial channels</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>-</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>-</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>-</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Channel Boosting</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="128" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Competitive Squeeze &amp; Excitation Network CMPE- SE-WRN-28</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2018</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Residual and identity mappings both are used for rescaling the feature-map</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>36.92 M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>CIFAR-10: 3.58<br>CIFAR-100: 18.47</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>152</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Feature-Map Exploitation</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 2</font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" height="64" align="center" valign=middle sdnum="1033;0;@"><font face="Helvetica" size=4>Mobile Net</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2017</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>Depthwise separable convolution Inverted Residual</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>2.25M</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>ImageNet: 29.4</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Helvetica" size=3>152</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>-</font></td>
-		<td style="border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff" align="center" valign=middle sdnum="1033;0;@"><font face="Times New Roman" size=4>class 1</font></td>
-	</tr>
-</table>
-<!-- ************************************************************************** -->
-</body>
-
 
 
 ### LeNet & Alexnet
 $LeNet由LeCuN等在1998年提出。它以其历史重要性而闻名，因为它是第一个CNN，在手手指识别任务中显示了最先进的性能。它具有对数字进行分类的能力，而不会受到较小的失真的影响.而8层CNN的AlexNet以非常大的优势赢得了2012年ImageNet比赛。该网络首次证明深度学习比手动提取特征的效果更好.AlexNet的缺点是深度加深之后会导致过拟合,它的解决方式是在开始的几层使用kernelsize=11的卷积,使用ReLU降低梯度消失的问题,使用dropout降低过拟合.$
+
+在LeNet提出后的将近20年里，神经网络一度被其他机器学习方法超越，如支持向量机。虽然LeNet可以在早期的小数据集上取得好的成绩，但是在更大的真实数据集上的表现并不尽如人意。一方面，神经网络计算复杂。虽然20世纪90年代也有过一些针对神经网络的加速硬件，但并没有像之后GPU那样大量普及。因此，训练一个多通道、多层和有大量参数的卷积神经网络在当年很难完成。另一方面，当年研究者还没有大量深入研究参数初始化和非凸优化算法等诸多领域，导致复杂的神经网络的训练通常较困难。
+
+神经网络可以直接基于图像的原始像素进行分类。这种称为端到端（end-to-end）的方法节省了很多中间步骤。然而，在很长一段时间里更流行的是研究者通过勤劳与智慧所设计并生成的手工特征。这类图像分类研究的主要流程是：
+
+1. 获取图像数据集；
+2. 使用已有的特征提取函数生成图像的特征；
+3. 使用机器学习模型对图像的特征分类。
+
+当时认为的机器学习部分仅限最后这一步。如果那时候跟机器学习研究者交谈，他们会认为机器学习既重要又优美。优雅的定理证明了许多分类器的性质。机器学习领域生机勃勃、严谨而且极其有用。然而，如果跟计算机视觉研究者交谈，则是另外一幅景象。他们会告诉你图像识别里“不可告人”的现实是：计算机视觉流程中真正重要的是数据和特征。也就是说，使用较干净的数据集和较有效的特征甚至比机器学习模型的选择对图像分类结果的影响更大。
+
+$AlexNet$
+
+AlexNet与LeNet的设计理念非常相似，但也有显著的区别。
+
+第一，与相对较小的LeNet相比，AlexNet包含8层变换，其中有5层卷积和2层全连接隐藏层，以及1个全连接输出层。下面我们来详细描述这些层的设计。
+
+AlexNet第一层中的卷积窗口形状是 11×11。因为ImageNet中绝大多数图像的高和宽均比MNIST图像的高和宽大10倍以上，ImageNet图像的物体占用更多的像素，所以需要更大的卷积窗口来捕获物体。第二层中的卷积窗口形状减小到 5×5，之后全采用 3×3。此外，第一、第二和第五个卷积层之后都使用了窗口形状为 3×3、步幅为2的最大池化层。而且，AlexNet使用的卷积通道数也大于LeNet中的卷积通道数数十倍。紧接着最后一个卷积层的是两个输出个数为4,096的全连接层。这两个巨大的全连接层带来将近1 GB的模型参数。由于早期显存的限制，最早的AlexNet使用双数据流的设计使一块GPU只需要处理一半模型。幸运的是，显存在过去几年得到了长足的发展，因此通常我们不再需要这样的特别设计了。
+
+第二，AlexNet将sigmoid激活函数改成了更加简单的ReLU激活函数。一方面，ReLU激活函数的计算更简单，例如它并没有sigmoid激活函数中的求幂运算。另一方面，ReLU激活函数在不同的参数初始化方法下使模型更容易训练。这是由于当sigmoid激活函数输出极接近0或1时，这些区域的梯度几乎为0，从而造成反向传播无法继续更新部分模型参数；而ReLU激活函数在正区间的梯度恒为1。因此，若模型参数初始化不当，sigmoid函数可能在正区间得到几乎为0的梯度，从而令模型无法得到有效训练。
+
+第三，AlexNet使用dropout.
+
+第四，AlexNet引入了大量的图像增广，如翻转、裁剪和颜色变化，从而进一步扩大数据集来缓解过拟合。
+
+
 
 ![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/LeNet&Alexnet.png)
 
@@ -345,11 +94,16 @@ class Inception(nn.Module):
 1. 采用不同大小的卷积核意味着不同大小的感受野，最后拼接意味着不同尺度特征的融合；
 2. 之所以卷积核大小采用1、3和5，主要是为了方便对齐。设定卷积步长stride=1之后，只要分别设定pad=0、1、2，那么卷积之后便可以得到相同维度的特征，然后这些特征就可以直接拼接在一起了；
 
-### Inception-v2,v3,v4, Inception-Resnet
+### Inception-V3
 1. 使用小的卷积核代替大的卷积核,减少计算量,如下.
 ![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/inceptionblockv2-3.png)
-1. 在通过卷积核比较大的层之前加入了1x1的卷积层调整维度.
-2. Inception-ResNet中,Szegedy结合了Residual Block,使用了残差连接改进了Inception,将Concate操作改成了残差连接,发现在深度和宽度增加的同时,模型收敛速度更快了。
+$5\times5$分解为两个$3\times3$，分解前和分解后的感受野是一样的。两个$3\times3$卷积的串联比一个$5\times5$卷积的representation能力更强。另外，分解后多使用了一个激活函数，增加了分线性能力（图2）。 两个$3\times3$卷积和一个$5\times5$卷积的参数量的比为$\frac{9+9}{25}$
+ ，分解减少了$28\%$的参数,同时计算量也减少了$28\%$.  
+同时,通过卷积的非对称分解可以将3x3卷积分解为$1\times3$和$3\times1$卷积。在输入输出filters数目一定的时候，卷积的非对称分解可以将计算量减少$33\%$。
+2. 在通过卷积核比较大的层之前加入了$1\times1$的卷积层调整维度.
+3. feature map的size的高效减小（Efficient Grid Size Reduction）:  
+   
+4. Inception-ResNet中,Szegedy结合了Residual Block,使用了残差连接改进了Inception,将Concate操作改成了残差连接,发现在深度和宽度增加的同时,模型收敛速度更快了。
 
 ## Depth based CNNs
 ---
