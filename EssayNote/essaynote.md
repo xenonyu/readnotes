@@ -1,12 +1,15 @@
 # 分类网络 阅读笔记
----
 ![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/DeepCNNS.png)
-$上图将主要算法分为了Spatial Exploitation based CNNs, Depth based CNNs, Muilti_Path based CNNs, Width based Muilti-Connection CNNs, Feature Map (Channel_{FMap}) Exploitation based CNNs, Attention based CNNs7个类别. 各模型的主要贡献,参数,优先级见下表.$
+上图将主要算法分为了Spatial Exploitation based CNNs, Depth based CNNs, Muilti_Path based CNNs, Width based Muilti-Connection CNNs, Feature Map $(Channel_{FMap})$ Exploitation based CNNs, Attention based CNNs, 7个类别. 
+
+
+
+
 
 ---
 ### LeNet & Alexnet
 ---
-$LeNet由LeCuN等在1998年提出. 它以其历史重要性而闻名, 因为它是第一个CNN, 在手手指识别任务中显示了最先进的性能. 它具有对数字进行分类的能力, 而不会受到较小的失真的影响.而8层CNN的AlexNet以非常大的优势赢得了2012年ImageNet比赛. 该网络首次证明深度学习比手动提取特征的效果更好.AlexNet的缺点是深度加深之后会导致过拟合,它的解决方式是在开始的几层使用kernelsize=11的卷积,使用ReLU降低梯度消失的问题,使用dropout降低过拟合.$
+LeNet由LeCuN等在1998年提出. 它以其历史重要性而闻名, 因为它是第一个CNN, 在手手指识别任务中显示了最先进的性能. 它具有对数字进行分类的能力, 而不会受到较小的失真的影响.而8层CNN的AlexNet以非常大的优势赢得了2012年ImageNet比赛. 该网络首次证明深度学习比手动提取特征的效果更好.AlexNet的缺点是深度加深之后会导致过拟合,它的解决方式是在开始的几层使用kernelsize=11的卷积,使用ReLU降低梯度消失的问题,使用dropout降低过拟合.​
 
 在LeNet提出后的将近20年里, 神经网络一度被其他机器学习方法超越, 如支持向量机. 虽然LeNet可以在早期的小数据集上取得好的成绩, 但是在更大的真实数据集上的表现并不尽如人意. 一方面, 神经网络计算复杂. 虽然20世纪90年代也有过一些针对神经网络的加速硬件, 但并没有像之后GPU那样大量普及. 因此, 训练一个多通道、多层和有大量参数的卷积神经网络在当年很难完成. 另一方面, 当年研究者还没有大量深入研究参数初始化和非凸优化算法等诸多领域, 导致复杂的神经网络的训练通常较困难. 
 
@@ -37,16 +40,29 @@ AlexNet第一层中的卷积窗口形状是 11×11. 因为ImageNet中绝大多�
 
 ![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/LeNet&Alexnet.png)
 
+
+
+
+
 ---
 ###  ZfNet
 ---
-$对中间层(Conv, Relu)的计算状态进行了可视化,提出AlexNet只有很少的神经元都是active的.$
+对中间层(Conv, Relu)的计算状态进行了可视化,提出AlexNet只有很少的神经元都是active的.​
+
+
+
+
 
 ---
 ### VGG
 ---
 $第一个使用相同结构的模块不断迭代的构建网络,作为提取特征的单元,大大降低了大模型构建的难度,同时使用小的卷积核代替大的卷积核.$
+
 ![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/VGG.png)
+
+
+
+
 
 ---
 ### GoogLeNet
@@ -113,15 +129,21 @@ $5\times5$分解为两个$3\times3$, 分解前和分解后的感受野是一样�
    ![](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/inceptionblock.png)
 4. Inception-ResNet中,Szegedy结合了Residual Block,使用了残差连接改进了Inception,将Concate操作改成了残差连接,发现在深度和宽度增加的同时,模型收敛速度更快了. 
 
+
+
+
+
 ---
 ## Depth based CNNs
-
-
 ---
 ### Highway 
 ---
 
 第一个提出来跨层连接机制,但是性能不如ResNet,这里我认为原因是因为使用了Sigmoid激活函数.
+
+
+
+
 
 ---
 ### ResNet
@@ -190,6 +212,7 @@ class BasicBlock(nn.Module):
 
 ---
 ## Multi-Path based CNNs
+
 ---
 
 ### DenseNet
@@ -203,25 +226,37 @@ class BasicBlock(nn.Module):
 ## Width based Multi-Connection CNNs
 ---
 ### Pyramidal Net
-
+---
 >#### 简介
 
 在之前的模型比如ResNet中,在层数增加时,特征图的深度通过卷积层增加了,但是空间维度下降了(使用降采样层),导致特征表示能力下降,导致性能下降. 于是此文作者舍弃了了$residual \, unit$, $Pyramidal\,Net$的特点是每层的宽度都会逐步增加,增加了模型的表示能力.下图左侧是$residual \, unit$,右侧是$Pyramidal\,Net$的实现方式.
 ![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/pyramidal.png)
 
-### Xception
 
-#### 简介
+
+
+
+---
+### Xception
+---
+
+> #### 简介
 将 $Inception\,block$ 网络变得更宽了.传统模型一般使用一个变换操作,$Inception block$ 使用三个变换操作,$Xception block$ 的变换个数等于通道个数, 使用$1\times1$卷积和通道空间卷积(对每个维度分别卷积),增加了模型的表示能力,而且降低了计算复杂度.
 Xception模块与深度可分离卷积之间的两个小区别是：
 
 1. 操作顺序：通常实现的深度可分离卷积(例如在TensorFlow中)首先执行通道空间卷积(深度卷积), 然后执行1x1卷积, 而Inception首先执行1x1卷积. 
 2. 第一次操作后是否存在非线性. 在Inception中, 两个操作都跟随ReLU非线性, 但是通常在没有非线性的情况下实现深度可分离卷积. 
-![avatar](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/Xception.png)
+![](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/Xception.png)
 
+
+
+
+
+---
 ## MobileNetV1-V2
+---
 
-### 简介
+> ### 简介
 
 google 201704在archive上的论文. 
 采用**depthwise separable**卷积核, 减少计算量和模型大小. 
@@ -279,25 +314,34 @@ class InvertedResidual(nn.Module):
             return self.conv(x)
 ```
 
+---
 ### Mobilenet V2:
+---
 
 1. $ReLU6(x) = min(max(x, 0), 6)$,  
 2. Inverted residual block: 先升维度再降维度, 保证了参数下降时信息能够更好的表示. 
 3. relu在低纬特征信息损失较大. 激活函数使用linear, 使用了shortcut链接(输入特征和输出特征相同时). 
 4. MobileNetV1网络主要思路就是深度可分离卷积的堆叠. 在V2的网络设计中, 我们除了继续使用深度可分离(中间那个)结构之外, 还使用了Expansion layer和 Projection layer. 这个projection layer也是使用 $1\times1$ 的网络结构, 他的目的是希望把高维特征映射到低维空间去. 
 5. Expansion layer的功能正相反, 使用$1\times1$的网络结构, 目的是将低维空间映射到高维空间. 这里Expansion有一个超参数是维度扩展几倍. 可以根据实际情况来做调整的, 默认值是6, 也就是扩展6倍. 效果如下图:
-   ![](....dfad)
+   ![](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/mobilenetV2.png)
 >原因:如果tensor维度越低, 卷积层的乘法计算量就越小. 那么如果整个网络都是低维的tensor, 那么整体计算速度就会很快. 然而, 如果只是使用低维的tensor效果并不会好. 如果卷积层的过滤器都是使用低维的tensor来提取特征的话, 那么就没有办法提取到整体的足够多的信息. 所以, 如果提取特征数据的话, 我们可能更希望有高维的tensor来做这个事情. V2就设计这样一个结构来达到平衡. 
 
+
+
+
+
+---
 ## shufflenet_v2:
+---
+> ### 简介: 
 在ShuffleNet v2这篇paper中, 作者们重点分析了影响在GPU/ARM两种平台上CNN网络计算性能的几个主要指标, 并提出了一些移动端CNN网络设计的指导准则, 最终将这些指导准则应用于ShuffleNet v1网络的改良就行成了ShuffleNet v2. 在分类与目标检测等通用任务时与mobilenet相比, 它都取得了不俗的性能. 
 
-![](....dfad)
+![](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/shufflenetBenchmark.png)
 
-### 高效CNN网络设计的四个准则
+### 高效CNN网络设计的四个准则:
 
 下图中分析了ShuffleNet v1与MobileNet v2这两个移动端流行网络在GPU/ARM两种平台下的时间消耗分布. 
-![](....dfad)
+![](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/shufflenetTime.png)
 从上图中可看出Conv等计算密集型操作占了其时间的绝大多数, 但其它像Elemwise/Data IO等内存读写密集型操作也占了相当比例的时间, 因此像以往那样一味以FLOPs来作为指导准则来设计CNN网络是不完备的, 虽然它可以反映出占大比例时间的Conv操作. 
 
 1. 当输入、输出channels数目相同时, conv计算所需的MAC(memory access cost)最为节省. 
@@ -306,7 +350,107 @@ class InvertedResidual(nn.Module):
 4. Element-wise操作会消耗较多的时间, 不可小视. 
 
 下图中的a/b为原ShuffleNet v1中具有的两种模块结构. 图c/d则为ShuffleNet v2中的模块设计. 
-![](....dfad)
+![](https://gitlab.sh.sensetime.com/xieyuming/imghost/raw/master/EssayNoteIMG/shufflenetBlock.png)
 
 ShuffleNet v2中弃用了1x1的group convolution操作, 而直接使用了input/output channels数目相同的1x1普通conv. 它更是提出了一种ChannelSplit新的类型操作, 将module的输入channels分为两部分, 一部分直接向下传递, 另外一部分则进行真正的向后计算. 到了module的末尾, 直接将两分支上的output channels数目级连起来, 从而规避了原来ShuffleNet v1中Element-wise sum的操作. 然后我们再对最终输出的output feature maps进行RandomShuffle操作, 从而使得各channels之间的信息相互交通. 
 跟ShuffleNet v1一样, 它也提供了一种需要downsampling的模块变形. 为了保证在下采样的时候增加整体输出channels数目, 它取消了模块最开始时的RandomSplit操作, 从而将信处向下分别处理后再拼结, 使得最终output channels数目实现翻倍.
+
+```python
+
+def conv_bn(inp, oup, stride):
+    return nn.Sequential(
+        nn.Conv2d(inp, oup, 3, stride, 1, bias=False),
+        nn.BatchNorm2d(oup),
+        nn.ReLU(inplace=True)
+    )
+ 
+ 
+def conv_1x1_bn(inp, oup):
+    return nn.Sequential(
+        nn.Conv2d(inp, oup, 1, 1, 0, bias=False),
+        nn.BatchNorm2d(oup),
+        nn.ReLU(inplace=True)
+    )
+ 
+def channel_shuffle(x, groups):
+    batchsize, num_channels, height, width = x.data.size()
+ 
+    channels_per_group = num_channels // groups
+    
+    # reshape
+    x = x.view(batchsize, groups, 
+        channels_per_group, height, width)
+ 
+    x = torch.transpose(x, 1, 2).contiguous()
+ 
+    # flatten
+    x = x.view(batchsize, -1, height, width)
+ 
+    return x
+    
+class InvertedResidual(nn.Module):
+    def __init__(self, inp, oup, stride, benchmodel):
+        super(InvertedResidual, self).__init__()
+        self.benchmodel = benchmodel
+        self.stride = stride
+        assert stride in [1, 2]
+ 
+        oup_inc = oup//2
+        
+        if self.benchmodel == 1:
+            #assert inp == oup_inc
+        	self.banch2 = nn.Sequential(
+                # pw  key
+                nn.Conv2d(oup_inc, oup_inc, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup_inc),
+                nn.ReLU(inplace=True),
+                # dw  key
+                nn.Conv2d(oup_inc, oup_inc, 3, stride, 1, groups=oup_inc, bias=False),
+                nn.BatchNorm2d(oup_inc),
+                # pw-linear
+                nn.Conv2d(oup_inc, oup_inc, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup_inc),
+                nn.ReLU(inplace=True),
+            )                
+        else:                  
+            self.banch1 = nn.Sequential(
+                # dw
+                nn.Conv2d(inp, inp, 3, stride, 1, groups=inp, bias=False),
+                nn.BatchNorm2d(inp),
+                # pw-linear
+                nn.Conv2d(inp, oup_inc, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup_inc),
+                nn.ReLU(inplace=True),
+            )        
+    
+            self.banch2 = nn.Sequential(
+                # pw
+                nn.Conv2d(inp, oup_inc, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup_inc),
+                nn.ReLU(inplace=True),
+                # dw
+                nn.Conv2d(oup_inc, oup_inc, 3, stride, 1, groups=oup_inc, bias=False),
+                nn.BatchNorm2d(oup_inc),
+                # pw-linear
+                nn.Conv2d(oup_inc, oup_inc, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup_inc),
+                nn.ReLU(inplace=True),
+            )
+          
+    @staticmethod
+    def _concat(x, out):
+        # concatenate along channel axis
+        return torch.cat((x, out), 1)        
+ 
+    def forward(self, x):
+        if 1==self.benchmodel:
+            x1 = x[:, :(x.shape[1]//2), :, :]
+            x2 = x[:, (x.shape[1]//2):, :, :]
+            out = self._concat(x1, self.banch2(x2))
+        elif 2==self.benchmodel:
+            out = self._concat(self.banch1(x), self.banch2(x))
+ 
+        return channel_shuffle(out, 2)
+
+```
+
