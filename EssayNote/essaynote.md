@@ -318,7 +318,7 @@ class InvertedResidual(nn.Module):
 ### Mobilenet V2:
 ---
 
-1. $ReLU6(x) = min(max(x, 0), 6)$,  
+1. $ReLU6(x) = min(max(x, 0), 6)$,  由于移动端使用float16进行浮点计算，若激活函数输出值过大，float16无法精确地表示输出值。
 2. Inverted residual block: 先升维度再降维度, 保证了参数下降时信息能够更好的表示. 
 3. relu在低纬特征信息损失较大. 激活函数使用linear, 使用了shortcut链接(输入特征和输出特征相同时). 
 4. MobileNetV1网络主要思路就是深度可分离卷积的堆叠. 在V2的网络设计中, 我们除了继续使用深度可分离(中间那个)结构之外, 还使用了Expansion layer和 Projection layer. 这个projection layer也是使用 $1\times1$ 的网络结构, 他的目的是希望把高维特征映射到低维空间去. 
